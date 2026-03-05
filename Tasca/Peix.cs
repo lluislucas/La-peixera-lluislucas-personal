@@ -1,12 +1,39 @@
-public class Peix : Amimal
+public class Peix : Animal
 {
-    public int(x,y) Posicio_inicial {get; set;}
+    private static Random rPeix = new();
+  
+    public Sexe Sex {get; set;}
 
+    public Peix((int x, int y) posicio, Sexe sexe) : base(posicio)
+    {
+      Sex = sexe;
+    }
     
     
-    
-    
-    //reprodueix
+    public Animal  Reproduccio()
+    {
+       
+       new Peix((int x, int y) posicio, Sexe sexe) : base(posicio)
+        {
+             posicio = escollirPosicioInicialAnimal(r2);
+        }
+        
+    }
     
     
 }
+
+/* 
+
+if ( altre is Tauro)
+{
+        this.Matar()
+}
+if ( altre is Peix p)
+{
+    if(p.sexe == sexe)
+    else
+        criar()
+}
+
+*/

@@ -1,64 +1,50 @@
 public abstract class Animal
 {
-    private static Random r = new();
-    public (int x, int y) Posicio {get; private set;}
+    protected static Random r = new();
+    protected (int x, int y) Posicio {get; private set;}
 
-    public (int x, int y) Direccio {get; private set;}
+    protected (int dx, int dy) Direccio {get; private set;}
 
     public bool EsViu {get; private set;}
 
-    public Animal((int x, int y) posicio)
+    public Animal((int x, int y) posicioInicial)
     {
       
-      Posicio = posicio;
-      direccioAnimal();
+      Posicio = posicioInicial;
+      Direccio = direccioAnimal();
       EsViu = true;
 
     }
     
-    public virtual void direccioAnimal ()
+    protected (int dx, int dy) direccioAnimal ()
     {
-        string[] direccions = {"dreta","esquerra","amunt","abaix"};
-        string index = direccions[r.Next(direccions.Length)];
-        
-       
-       
-        switch (index)
+         int dx = r.Next(-1, 2);
+        int dy = r.Next(-1, 2);
+
+        while (dx == 0 && dy == 0)
         {
-            case  "dreta":
-              Direccio = (1,0);
-                break;
-
-            case  "esquerra":
-                 Direccio = (-1,0);
-                break;
-
-            case  "amunt":
-                Direccio = (0,-1);
-                break;
- 
-            default:
-                Direccio = (0,1);
-                break;
+            dx = r.Next(-1, 2);
+            dy = r.Next(-1, 2);
         }
+
+        return (dx, dy);
         
     }
 
-    public virtual void MoureAnimal( (int x, int y) posicioActual,(int x, int y) direccio )
+    public virtual void direccioDiferent()
     {
         
-        posicioActual.x = posicioActual.x +direccio.x;
-        posicioActual.y = posicioActual.y +direccio.y;
-        posicioActual= Posicio;
-
     }
 
-    // 
+    public virtual void MoureAnimal()
+    {
+        
+        Posicio.x = Posicio.x +Direccio.dx;
+        Posicio.y = Posicio.y +Direccio.dy;
 
+        
+    }
 
-   
-
-    //Mirar si hi ha algu a la mateix aposicio per ronda???
 
 
 
