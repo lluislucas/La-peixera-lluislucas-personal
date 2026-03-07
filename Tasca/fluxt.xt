@@ -1,0 +1,30 @@
+MAin{
+
+}
+
+Classe Animal{
+
+    posicio inicial
+    direccio
+    esviu
+
+        virtual metodes:
+
+        direccio
+        moure
+}
+
+Classe Peix: Animal{
+
+    posicio inicial
+    direccio
+    esviu
+    sexe
+
+
+        override metodes:
+
+        direccio
+        moure()
+        reproduir
+}

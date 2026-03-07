@@ -15,8 +15,28 @@ public class Peixera
         int x = r1.Next(0,MidaPeixera.X);
 
         int y = r1.Next(0,MidaPeixera.Y);
+       
+        while(comprovarPosicio((x,y)) == false)
+        {
+             x = r1.Next(0,MidaPeixera.X);
+
+             y = r1.Next(0,MidaPeixera.Y);
+        }
 
         return (x,y);
         
+    }
+
+    public virtual bool comprovarPosicio((int x, int y) valor)
+    {
+        foreach (Animal a in Aquari)
+        {
+            if( a.Posicio == valor)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -1,61 +1,43 @@
 public abstract class Animal
 {
-    private static Random r = new();
-    public (int x, int y) Posicio_inicial {get; private set;}
+    protected static Random r = new();
+    public (int x, int y) Posicio {get; private set;}
 
-    public (int x, int y) Direccio {get; private set;}
+    public (int dx, int dy) Direccio {get; private set;}
 
     public bool EsViu {get; private set;}
 
-    public Animal()
+    public Animal((int x, int y) posicioInicial)
     {
-      direccioAnimal();
+      
+      Posicio = posicioInicial;
+      Direccio = direccioAnimal();
       EsViu = true;
 
     }
-
     
-    public void direccioAnimal ()
+    protected (int dx, int dy) direccioAnimal ()
     {
-        string[] direccions = {"dreta","esquerra","amunt","abaix"};
-        string index = direccions[r.Next(direccions.Length-1)];
-        
-       
-       
-        switch (index)
+         int dx = r.Next(-1, 2);
+        int dy = r.Next(-1, 2);
+
+        while (dx == 0 && dy == 0)
         {
-            case  "dreta":
-              Direccio = (1,0);
-                break;
-
-            case  "esquerra":
-                 Direccio = (-1,0);
-                break;
-
-            case  "amunt":
-                Direccio = (0,-1);
-                break;
- 
-            default:
-                Direccio = (0,1);
-                break;
+            dx = r.Next(-1, 2);
+            dy = r.Next(-1, 2);
         }
+
+        return (dx, dy);
         
     }
 
-    public void MoureAnimal( (int x, int y) inici,(int x, int y) direccio )
+
+    public virtual void MoureAnimal()
     {
         
+        Posicio = (Posicio.x +Direccio.dx, Posicio.y +Direccio.dy);
+        
     }
-
-    // 
-
-
-   
-
-    //Mirar si hi ha algu a la mateix aposicio per ronda???
-
-
 
     
 }
