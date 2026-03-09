@@ -30,7 +30,7 @@ public class Peix : Animal
             return false;
     }*/
 
-   public override void Interactuar(Animal altre)
+   public override void Interactuar(Animal altre,Peixera peixera)
     {
         if(altre is Tauro)
         {
@@ -46,7 +46,7 @@ public class Peix : Animal
             }
             else
             {
-                Reproduccio();
+                Reproduccio(p, peixera);
                 
             }
         }

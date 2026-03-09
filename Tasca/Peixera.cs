@@ -19,7 +19,7 @@ public class Peixera
         
     }
 
-    public virtual (int x, int y) EscollirPosicioInicialAnimal (Random r1 )
+    public  virtual (int x, int y) EscollirPosicioInicialAnimal (Random r1 )
     {
         int x = r1.Next(0,MidaPeixera.X);
 

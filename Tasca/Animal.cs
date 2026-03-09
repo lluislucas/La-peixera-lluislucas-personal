@@ -49,7 +49,7 @@ public abstract class Animal
             return false;
     }*/
 
-    public abstract void Interactuar(Animal altre);
+    public abstract void Interactuar(Animal altre, Peixera peixera);
 
     
 }

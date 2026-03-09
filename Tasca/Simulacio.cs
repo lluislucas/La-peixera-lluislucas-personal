@@ -5,20 +5,21 @@ public class Simulacio
 
      public int Ronda { get; set; }
 
-     public Peixera()
+     public Simulacio()
     {
-        
+        Ronda = 99;
     }
 
      public void FerRonda()
     {
-        
-    }
-
     FerRonda();
     MoureAnimals()
     BuscarCoincidencies()
     GestionarTrobada(animal1, animal2)
+        
+    }
+
+  
 
 
     //te peixera
