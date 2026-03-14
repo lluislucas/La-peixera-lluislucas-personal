@@ -3,14 +3,12 @@ public class Tauro: Animal
     private static Random rPeix = new();
     public int Vides {get; set;}
 
-    public Tauro((int x, int y) posicioInicial) : base(posicioInicial)
+    public Tauro(ESexe sexe) : base(sexe)
     {
-      
-      EscullSexe();
       Vides = 50;
     }
 
-    public override Animal? Interactuar(Animal altre, Peixera peixera)
+   /* public override Animal? Interactuar(Animal altre, Peixera peixera)
     {
         
         if(altre is Peix p )
@@ -36,7 +34,7 @@ public class Tauro: Animal
             }
             else
             {
-                 return Reproduccio(t,peixera);
+                 return Reproduccio( );
                 
             }
         
@@ -44,7 +42,7 @@ public class Tauro: Animal
         return null;
     }
 
-    public override Animal Reproduccio(Animal altre, Peixera peixera)
+    public override Animal Reproduccio(Animal altre, (int x, int y) MidaPeixera)
     {
             (int x, int y) posicioFill = peixera.EscollirPosicioInicialAnimal(rPeix);
 
@@ -82,7 +80,7 @@ public class Tauro: Animal
 
         Direccio = (dx, dy);
         
-    }
+    }*/
 
     
 }

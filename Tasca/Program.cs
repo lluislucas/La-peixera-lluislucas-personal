@@ -4,29 +4,76 @@ internal class Program
 {
     static void Main(string[] args)
     {
-         Random random = new Random();
 
+         Peixera peixera = new();
+  
+         int num_peixM = 50;
+         int num_peixF = 50;
+         int num_tauroM =10;
+         int num_tauroF =10;
+         int num_tortuga =15;
+         int num_pop = 6;
 
-         Simulacio Univers1 = new();
+         
 
-         Peixera Aquari = new();
-
-        
-         int num_peix = 10;
-         int num_tauro =2;
-         int num_tortuga =2;
-         int num_pop = 2;
-
-         for( int i = 0; i< num_peix; i++)
+        for( int i = 0; i< num_peixM; i++)
         {
            
-            Peix nemo = new Peix (Aquari.escollirPosicioInicialAnimal(random));
+            Peix nemo = new Peix (ESexe.Mascle);
+            (int x, int y) posicioInicial = peixera.EscollirPosicioInicialAnimal();
+            peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(nemo);
+ 
+        }
 
-            Console.WriteLine($"{nemo.Sexe} {nemo.Direccio} {nemo.Posicio}");
-            
+        for( int i = 0; i< num_peixF; i++)
+        {
+           
+            Peix dori = new Peix (ESexe.Femella);
+            (int x, int y) posicioInicial = peixera.EscollirPosicioInicialAnimal();
+            peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(dori);
+ 
+        }
+        for( int i = 0; i< num_tauroF; i++)
+        {
+           
+            (int x, int y) posicioInicial = peixera.EscollirPosicioInicialAnimal();
+            peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Tauro (ESexe.Mascle));
+ 
+        }
+        for( int i = 0; i< num_tauroM; i++)
+        {
+
+            (int x, int y) posicioInicial = peixera.EscollirPosicioInicialAnimal();
+            peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Tauro (ESexe.Mascle));
+ 
+        }
+        for( int i = 0; i< num_tortuga; i++)
+        {
+ 
+            (int x, int y) posicioInicial = peixera.EscollirPosicioInicialAnimal();
+            peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Tortuga (ESexe.Aleatori));
+
+        }
+        Console.WriteLine("prova");
+        for( int i = 0; i< num_pop; i++)
+        {
+ 
+            (int x, int y) posicioInicial = peixera.EscollirPosicioInicialAnimal();
+            peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Pop ());
+
         }
 
         
+
+       for (int x = 0; x < peixera.MidaPeixera.X; x++)
+        {
+            for (int y = 0; y < peixera.MidaPeixera.Y; y++)
+            {
+                if(peixera.Aquari.)
+                Console.Write(peixera.Aquari[x][y][0].ToString()[0]);
+            }
+            Console.WriteLine();
+        }
 
     }
 }

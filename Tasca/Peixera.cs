@@ -12,75 +12,73 @@ public class Peixera
 
     public (int X, int Y) MidaPeixera {get; private set;}
 
-    public List<Animal> Aquari {get; private set;}
+    public List<List<List<Animal>>> Aquari {get; private set;}
 
     public  Peixera()
     {
        MidaPeixera = (20,20);
-       Aquari = new List<Animal>();
-        
-    }
 
-    //arreglar
-
-    public  virtual (int x, int y) EscollirPosicioInicialAnimal (Animal altre, Random r1 )
-    {
-        if (altre == Pop )
-        {
-        int[] lateral ={0,19};
-
-        (int x,int y)[] Posicions = {(r1.Next(20),lateral[r1.Next(1)]),(lateral[r1.Next(1)],r1.Next(20))}; 
-
-        while(comprovarPosicio( (int x,int y) Posicions[] ) == false)
-        {
-             x = r1.Next(0,MidaPeixera.X);
-
-             y = r1.Next(0,MidaPeixera.Y);
-        }
-        
-        return Posicions[r1.Next(2)];
-            
-        }
-        else
-        {
+       //zoo = list animal
        
-        int x = r1.Next(0,MidaPeixera.X);
+       Aquari = new List<List<List<Animal>>>();
 
-        int y = r1.Next(0,MidaPeixera.Y);
-       
-        while(comprovarPosicio((x,y)) == false)
+       for (int x = 0; x < MidaPeixera.X; x++)
         {
-             x = r1.Next(0,MidaPeixera.X);
+            Aquari.Add(new List<List<Animal>>());
 
-             y = r1.Next(0,MidaPeixera.Y);
-        }
-
-        return (x,y);
-        }
-        
-    }
-
-    /*public  override (int x, int y) PosicioInicialPop(Random random)//arregla 
-    {
-        int[] lateral ={0,19};
-
-        (int x,int y)[] Posicions = {(random.Next(20),lateral[random.Next(1)]),(lateral[random.Next(1)],random.Next(20))}; 
-        
-        return Posicions[random.Next(2)];
-
-    }*/
-
-    public virtual bool comprovarPosicio((int x, int y) valor)
-    {
-        foreach (Animal a in Aquari)
-        {
-            if( a.Posicio == valor)
+            for (int y = 0; y < MidaPeixera.Y; y++)
             {
-                return false;
+                Aquari[x].Add(new List<Animal>());
             }
         }
+       
+        
+    }
 
-        return true;
+    public  (int x, int y) EscollirPosicioInicialAnimal ( )
+    {
+        int x = random.Next(0,MidaPeixera.X);
+
+        int y = random.Next(0,MidaPeixera.Y);
+       
+        while(comprovarPosicio((x,y)) == true)
+        {
+             x = random.Next(0,MidaPeixera.X);
+
+             y = random.Next(0,MidaPeixera.Y);
+        }
+
+
+        return (x,y);
+        
+    }
+
+    public  bool comprovarPosicio((int x, int y) valor)
+    {
+        Console.WriteLine("prova");
+            if(Aquari[valor.x][valor.y].Count > 0)
+            {
+                return true;
+            }
+ 
+            return false;
+    }
+
+   /* public  Animal Reproduccio(Animal altre)
+    {
+            (int x, int y) posicioFill = EscollirPosicioInicialAnimal(random);
+
+            while ( posicioFill == altre.Posicio)
+            {
+                posicioFill = EscollirPosicioInicialAnimal(random);
+            }
+
+            return new Peix(posicioFill);
+    }
+
+    public void AfegirAnimal(Animal animal)
+    {
+        Aquari.Add(animal);
     }
 
 
@@ -88,6 +86,6 @@ public class Peixera
     {
             animal.Morir();
             Aquari.Remove(animal);
-    }
+    }*/
 
 }

@@ -1,7 +1,9 @@
 public enum ESexe
 {
     Mascle,
-    Femella
+    Femella,
+    Hermafrodita,
+    Aleatori
 }
 
 enum Direccio

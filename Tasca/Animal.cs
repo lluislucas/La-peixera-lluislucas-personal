@@ -2,7 +2,7 @@ public abstract class Animal
 {
     protected static Random r = new();
 
-    public (int x, int y) Posicio {get; protected set;}
+    //public (int x, int y) Posicio {get; protected set;}
 
     public (int dx, int dy) Direccio {get; protected set;}
 
@@ -10,13 +10,20 @@ public abstract class Animal
 
     public   ESexe Sexe {get; set;}
 
-    public Animal((int x, int y) posicioInicial)
+    public Animal(ESexe sexe)
     {
       
-      Posicio = posicioInicial;//quan se crida constructor posar metode EscollirPosicioInicialAnimal() dins parentesis
+      //Posicio = EscollirPosicioInicialAnimal();
       Direccio = direccioAnimal();
       EsViu = true;
+      if(sexe== ESexe.Aleatori)
+      {
       Sexe = EscullSexe();
+      }
+      else
+        {
+            Sexe = sexe;
+        }
 
     }
 
@@ -35,7 +42,7 @@ public abstract class Animal
 
     }
 
-    public abstract Animal Reproduccio(Animal altre, Peixera peixera);
+    //public abstract Animal? Reproduccio(Animal altre, (int x, int y) MidaPeixera);
   
 
     public virtual  (int dx, int dy) direccioAnimal ()
@@ -53,11 +60,10 @@ public abstract class Animal
         
     }
 
-
-    public virtual void MoureAnimal()
+    /*public virtual void MoureAnimal((int x, int y) midapeixera)//
     {
         
-        Posicio = (Posicio.x + Direccio.dx, Posicio.y + Direccio.dy);
+        return Posicio = ((Posicio.x + Direccio.dx) % midapeixera.x, (Posicio.y + Direccio.dy) % midapeixera.y );
         
     }
 
@@ -67,8 +73,32 @@ public abstract class Animal
         EsViu = false;
     }
 
-    public abstract Animal? Interactuar(Animal altre, Peixera peixera);
+    public abstract Animal? Interactuar(Animal altre);
 
+
+    public virtual (int x, int y) EscollirPosicioInicialAnimal ( Random r1, (int x, int y) MidaPeixera )
+    {
+        int x = r1.Next(0,MidaPeixera.x);
+
+        int y = r1.Next(0,MidaPeixera.y);
+
+        return (x,y);
+        
+    }
+
+    public override Animal Reproduccio(Animal altre)//if per combropbar si es hermafrodita
+    {
+            (int x, int y) posicioFill = peixera.EscollirPosicioInicialAnimal(rPeix);
+
+            while ( posicioFill == altre.Posicio)
+            {
+                posicioFill = peixera.EscollirPosicioInicialAnimal(rPeix);
+            }
+
+            return new Tauro();
+
+    }*/
+    
 
     
 }

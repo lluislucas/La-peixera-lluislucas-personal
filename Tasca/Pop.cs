@@ -2,20 +2,52 @@ public  class Pop : Animal
 {
     public static Random rPeix = new();
 
-    public (int x, int y) Posicio {get; private set;}
+    //public (int x, int y) Posicio {get; private set;}
 
     public (int dx, int dy) Direccio {get; private set;}
 
     public bool EsViu {get; private set;}
 
-    public Pop((int x, int y) posicioInicial) : base(posicioInicial)
+    public Pop( ) : base(ESexe.Hermafrodita)
     {
-      Posicio = posicioInicial;
+      
       EsViu = true;
-      Direccio = CanviarDireccioPop();
+      //Direccio = CanviarDireccioPop();
 
-      
-      
+    }
+    
+   /* public  override (int x, int y) EscollirPosicioInicialAnimal(Animal altre, Random r1, (int x, int y) MidaPeixera)
+    {
+        int[] lateral ={0,19};
+
+        (int x,int y)[] Posicions = {(r1.Next(20),lateral[r1.Next(1)]),(lateral[r1.Next(1)],r1.Next(20))}; 
+        
+        return Posicions[r1.Next(2)];
+
+    }
+    public override Animal? Interactuar(Animal altre,Peixera peixera)
+    {
+        if(altre is Pop)
+        {
+            Morir();
+            return null;
+        }
+
+        if(altre is Pop p)
+        {
+            if(Sexe == p.Sexe)
+            {
+                Morir();
+                p.Morir();
+                
+            }
+            else
+            {
+            
+                
+            }
+        }
+        return null;
     }
 
     public   (int dx, int dy)  CanviarDireccioPop()
@@ -49,6 +81,11 @@ public  class Pop : Animal
     {
         EsViu = false;
     }
+
+    public override Animal? Reproduccio(Animal altre, Peixera peixera)
+    {
+        return null;
+    }*/
 
 
 }
