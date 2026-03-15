@@ -10,6 +10,8 @@ public abstract class Animal
 
     public   ESexe Sexe {get; set;}
 
+    public bool ShaMogut {get; set;}
+
     public Animal(ESexe sexe)
     {
       
@@ -24,7 +26,7 @@ public abstract class Animal
         {
             Sexe = sexe;
         }
-
+    ShaMogut = false;
     }
 
     public  ESexe EscullSexe()
@@ -60,15 +62,17 @@ public abstract class Animal
         
     }
 
-    /*public virtual void MoureAnimal((int x, int y) midapeixera)//
+   public virtual (int x, int y) ObtenirSeguentPosicio((int x, int y)posicio ,(int x, int y) midapeixera)
     {
         
-        return Posicio = ((Posicio.x + Direccio.dx) % midapeixera.x, (Posicio.y + Direccio.dy) % midapeixera.y );
+         (int x, int y) PosicioFinal = ((posicio.x + Direccio.dx) % midapeixera.x, (posicio.y + Direccio.dy) % midapeixera.y );
+
+          return PosicioFinal;
         
     }
 
 
-    public void Morir()
+    /*public void Morir()
     {
         EsViu = false;
     }

@@ -12,13 +12,16 @@ public class Peixera
 
     public (int X, int Y) MidaPeixera {get; private set;}
 
+    public int Densitat = 50;
+
     public List<List<List<Animal>>> Aquari {get; private set;}
+
+    
 
     public  Peixera()
     {
        MidaPeixera = (20,20);
 
-       //zoo = list animal
        
        Aquari = new List<List<List<Animal>>>();
 
@@ -29,6 +32,7 @@ public class Peixera
             for (int y = 0; y < MidaPeixera.Y; y++)
             {
                 Aquari[x].Add(new List<Animal>());
+
             }
         }
        
@@ -87,5 +91,87 @@ public class Peixera
             animal.Morir();
             Aquari.Remove(animal);
     }*/
+
+    public  void Imprimir()
+    {
+        for (int x = 0; x < MidaPeixera.X; x++)
+        {
+            for (int y = 0; y < MidaPeixera.Y; y++)
+            {
+                if(Aquari[x][y].Count>0)
+                {
+                    if(Aquari[x][y].Count <10)
+                    {
+                        Console.Write(0);
+                    }
+                  
+                    Console.Write(Aquari[x][y].Count + " ");
+                    
+                }
+                else
+                {
+                    Console.Write("__ ");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+
+    public void SeguentRonda()
+    {
+        ResetRonda();
+
+        for(int i =0; i<Aquari.Count; i++ )
+        {
+            for(int j =0; j<Aquari[i].Count; j++ )
+            {
+                for(int k =0; k<Aquari[i][j].Count; k++ )
+                {
+                    MoureAnimal((i,j,k));
+
+                }
+
+            }
+            
+        }
+    }
+
+    public void MoureAnimal((int x, int y, int num_animal) GPSAnimal)
+    {
+        if(Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal].ShaMogut == false)
+        {
+            (int x, int y ) NovaPosicio =
+            Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal].
+            ObtenirSeguentPosicio((GPSAnimal.x,GPSAnimal.y),MidaPeixera);
+
+            Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal].ShaMogut = true;
+
+            Aquari[NovaPosicio.x][NovaPosicio.y].Add(Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal]);
+
+            Aquari[GPSAnimal.x][GPSAnimal.y].RemoveAt(GPSAnimal.num_animal);
+            
+        }
+   
+    }
+
+    public void ResetRonda()
+    {
+        for(int i =0; i<Aquari.Count; i++ )
+        {
+            for(int j =0; j<Aquari[i].Count; j++ )
+            {
+                for(int k =0; k<Aquari[i][j].Count; k++ )
+                {
+                  
+                    Aquari[i][j][k].ShaMogut= false;
+            
+                }
+
+            }
+            
+        }
+        
+    }
+
 
 }
