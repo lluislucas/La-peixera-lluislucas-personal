@@ -63,9 +63,13 @@ internal class Program
 
         }
 
+        for( int i = 0; i< 100; i++)
+        {
         peixera.Imprimir();
         peixera.SeguentRonda();
         peixera.Imprimir();
+        Console.WriteLine(" ");
+        }
 
 
 
