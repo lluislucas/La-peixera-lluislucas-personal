@@ -29,7 +29,7 @@ public abstract class Animal
     ShaMogut = false;
     }
 
-    public  ESexe EscullSexe()
+    public  virtual ESexe EscullSexe()
     {
         int numero = r.Next(0,2);
         if(numero == 0)
@@ -75,12 +75,12 @@ public abstract class Animal
     /*public void Morir()
     {
         EsViu = false;
-    }
+    }*/
 
-    public abstract Animal? Interactuar(Animal altre);
+    public abstract bool? Interactuar(Animal altre);
 
 
-    public virtual (int x, int y) EscollirPosicioInicialAnimal ( Random r1, (int x, int y) MidaPeixera )
+    /*public virtual (int x, int y) EscollirPosicioInicialAnimal ( Random r1, (int x, int y) MidaPeixera )
     {
         int x = r1.Next(0,MidaPeixera.x);
 

@@ -5,7 +5,7 @@ public class Tauro: Animal
 
     public Tauro(ESexe sexe) : base(sexe)
     {
-      Vides = 50;
+      Vides = 75;
     }
 
    /* public override Animal? Interactuar(Animal altre, Peixera peixera)

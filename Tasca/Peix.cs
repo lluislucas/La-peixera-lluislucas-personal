@@ -7,33 +7,32 @@ public class Peix : Animal
       
     }
 
-   /*public override Animal? Interactuar(Animal altre)
+   public override bool? Interactuar(Animal altre)
     {
         if(altre is Tauro)
         {
-            Morir();
-            return null;
+            
+            return false;
         }
 
         if(altre is Peix p)
         {
             if(Sexe == p.Sexe)
             {
-                Morir();
-                p.Morir();
+                return false;
                 
             }
             else
             {
-                return Reproduccio( );
+                return true;
                 
             }
         }
         return null;
     }
 
-*/
     
+
         
 }
     

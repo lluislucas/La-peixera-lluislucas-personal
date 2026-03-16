@@ -34,9 +34,7 @@ public class Peixera
                 Aquari[x].Add(new List<Animal>());
 
             }
-        }
-       
-        
+        }  
     }
 
     public  (int x, int y) EscollirPosicioInicialAnimal ( )
@@ -68,29 +66,29 @@ public class Peixera
             return false;
     }
 
-   /* public  Animal Reproduccio(Animal altre)
+   public  Animal Reproduccio((int x , int y ) Aquari)
     {
-            (int x, int y) posicioFill = EscollirPosicioInicialAnimal(random);
+            (int x, int y) posicioFill = EscollirPosicioInicialAnimal();
 
-            while ( posicioFill == altre.Posicio)
+            while ( posicioFill.x == Aquari.x && posicioFill.y == Aquari.y)
             {
-                posicioFill = EscollirPosicioInicialAnimal(random);
+                posicioFill = EscollirPosicioInicialAnimal();
             }
 
-            return new Peix(posicioFill);
+            return new Peix(ESexe.Aleatori);
     }
 
     public void AfegirAnimal(Animal animal)
     {
-        Aquari.Add(animal);
+        Aquari[x][y].Add(animal);
     }
 
 
     public void EliminarAnimal(Animal animal)
     {
             animal.Morir();
-            Aquari.Remove(animal);
-    }*/
+            Aquari[x][y].Remove(animal);
+    }
 
     public  void Imprimir()
     {

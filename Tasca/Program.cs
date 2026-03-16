@@ -7,12 +7,12 @@ internal class Program
 
          Peixera peixera = new();
   
-         int num_peixM = 2;
-         int num_peixF = 0;
-         int num_tauroM =0;
-         int num_tauroF =0;
-         int num_tortuga =0;
-         int num_pop = 0;
+         int num_peixM = 50;
+         int num_peixF = 50;
+         int num_tauroM =10;
+         int num_tauroF =10;
+         int num_tortuga =6;
+         int num_pop = 15;
 
          
 
