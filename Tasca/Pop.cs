@@ -9,7 +9,7 @@ public  class Pop : Animal
     public Pop( ) : base(ESexe.Hermafrodita)
     {
       
-      potAtacar = new(){"Pop"};
+      //potAtacar = new(){"Pop"};
       //Direccio = CanviarDireccioPop();
 
     }

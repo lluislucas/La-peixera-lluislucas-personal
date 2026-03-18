@@ -4,7 +4,7 @@ public class Tortuga: Animal
     public Tortuga(ESexe sexe) : base(sexe)
     {
       
-      potAtacar = new(){"Tortuga"};
+      //potAtacar = new(){"Tortuga"};
     }
 
 

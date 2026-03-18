@@ -7,7 +7,7 @@ public class Tauro: Animal
     {
       Vides = 75;
       girarAmb = new(){"Tortuga"};
-      potAtacar = new(){"Peix","Pop", "Tauro"};
+      potAtacar = new(){"Peix","Pop"};
     }
 
    /*
@@ -33,9 +33,9 @@ public class Tauro: Animal
         {
             Morir();
         }
-    }
+    }*/
     
-    public void  CanvidireccioTauro()
+    public override void  CanvidireccioTauro()
     {
 
         int dx = r.Next(-1, 2);
@@ -50,7 +50,7 @@ public class Tauro: Animal
 
         Direccio = (dx, dy);
         
-    }*/
+    }
 
     
 }

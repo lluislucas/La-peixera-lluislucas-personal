@@ -7,7 +7,14 @@ public class Peix : Animal
         potAtacar = new(){"Peix"};
       
     }
-        
+    
+    //public abstract Animal? Reproduccio(Animal altre, (int x, int y) MidaPeixera);
+
+    public override Animal Reproduccio()
+    {
+
+            return new Peix();
+    }
 }
     
 

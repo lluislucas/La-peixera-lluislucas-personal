@@ -66,7 +66,7 @@ public class Peixera
             return false;
     }
 
-   public  Animal Reproduccio((int x , int y ) Aquari)
+   /*public  Animal Reproduccio((int x , int y ) Aquari)
     {
             (int x, int y) posicioFill = EscollirPosicioInicialAnimal();
 
@@ -76,7 +76,7 @@ public class Peixera
             }
 
             return new Peix(ESexe.Aleatori);
-    }
+    }*/
 
     public void AfegirAnimal(Animal animal)
     {

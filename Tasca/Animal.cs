@@ -52,8 +52,6 @@ public abstract class Animal
             return ESexe.Femella;
 
     }
-
-    //public abstract Animal? Reproduccio(Animal altre, (int x, int y) MidaPeixera);
   
 
     public virtual  (int dx, int dy) direccioAnimal ()
@@ -80,6 +78,8 @@ public abstract class Animal
         
     }
 
+    public abstract void  CanvidireccioTauro();
+
 
     /*public void Morir()
     {
@@ -100,26 +100,39 @@ public abstract class Animal
                 this.EsViu = false;
                 altre.EsViu = false;
             }
-            if (this.Sexe != altre.Sexe)
+            else if (this.ToString()!= "Pop")
             {
-                //reproduccio() 
-            } 
+                if(this.Sexe != altre.Sexe)
+                {
+                    //new  this Animal (ESexe.Aleatori);
+                    
+                } 
+            }
+            return;
         }
         
         if(this.ToString() != altre.ToString())
         {
-            if(this.potAtacar == )
+            if(this.ToString() == "Tauro")
+            {
+                if(altre.ToString()=="Peix")
+                {
+                    altre.EsViu = false;
+                }
+                if(altre.ToString()=="Tortuga")
+                {
+                    this.CanvidireccioTauro();
+                }
+                if(altre.ToString()=="Pop")
+                {
+                    altre.EsViu = false;
+                }
+                
+            }
+            return;
             
         }
-        
-     
-
-
-
-
-
-
-        
+  
     }
 
     public void CompteEnrere()
@@ -132,6 +145,7 @@ public abstract class Animal
         Vides -= 1;
         
     }
+    public abstract Animal Reproduccio();
 
 
     /*public virtual (int x, int y) EscollirPosicioInicialAnimal ( Random r1, (int x, int y) MidaPeixera )
@@ -142,20 +156,10 @@ public abstract class Animal
 
         return (x,y);
         
-    }
-
-    public override Animal Reproduccio(Animal altre)//if per combropbar si es hermafrodita
-    {
-            (int x, int y) posicioFill = peixera.EscollirPosicioInicialAnimal(rPeix);
-
-            while ( posicioFill == altre.Posicio)
-            {
-                posicioFill = peixera.EscollirPosicioInicialAnimal(rPeix);
-            }
-
-            return new Tauro();
-
     }*/
+
+   
+  
     
 
     
