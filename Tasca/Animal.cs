@@ -78,8 +78,6 @@ public abstract class Animal
         
     }
 
-    public abstract void  CanvidireccioTauro();
-
 
     /*public void Morir()
     {
@@ -104,7 +102,7 @@ public abstract class Animal
             {
                 if(this.Sexe != altre.Sexe)
                 {
-                    //new  this Animal (ESexe.Aleatori);
+                    this.Reproduccio();
                     
                 } 
             }
@@ -121,7 +119,11 @@ public abstract class Animal
                 }
                 if(altre.ToString()=="Tortuga")
                 {
-                    this.CanvidireccioTauro();
+                    int direccio_inicial = this.Direccio.dx;
+                    while(this.Direccio.dx == direccio_inicial)
+                    {
+                    this.direccioAnimal();
+                    }
                 }
                 if(altre.ToString()=="Pop")
                 {
@@ -146,6 +148,8 @@ public abstract class Animal
         
     }
     public abstract Animal Reproduccio();
+    
+
 
 
     /*public virtual (int x, int y) EscollirPosicioInicialAnimal ( Random r1, (int x, int y) MidaPeixera )

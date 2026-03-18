@@ -10,6 +10,12 @@ public class Tauro: Animal
       potAtacar = new(){"Peix","Pop"};
     }
 
+    public override Animal Reproduccio()
+    {
+
+            return new Tauro((ESexe.Aleatori));
+    }
+
    /*
 
     public override Animal Reproduccio(Animal altre, (int x, int y) MidaPeixera)

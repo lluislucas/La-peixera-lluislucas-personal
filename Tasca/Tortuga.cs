@@ -4,7 +4,13 @@ public class Tortuga: Animal
     public Tortuga(ESexe sexe) : base(sexe)
     {
       
-      //potAtacar = new(){"Tortuga"};
+      potAtacar = new(){"Tortuga"};
+    }
+
+    public override Animal Reproduccio()
+    {
+
+            return new Tortuga((ESexe.Aleatori));
     }
 
 
