@@ -127,8 +127,11 @@ public class Peixera
                 {
                     for(int l =k+1; l<Aquari[i][j].Count; l++ )
                     {
-                        Intrectuar(Aquari[i][j][k],Aquari[i][j][l]);
-                 
+                        
+                        Aquari[i][j][l].Interactuar(Aquari[i][j][k]);
+                        //matar si ESVIU=false
+                        
+                        
                     }
                     
 
@@ -137,7 +140,7 @@ public class Peixera
             }
             
         }
-
+        
 
 
         

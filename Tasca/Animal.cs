@@ -86,9 +86,51 @@ public abstract class Animal
         EsViu = false;
     }*/
 
-    public void Interactuar(Animal altre);
+    public void Interactuar(Animal altre)
     {
-        Console.WriteLine("hola");
+        if(this.EsViu==false || altre.EsViu== false)
+        {
+            return;
+        }
+
+        if(this.ToString() == altre.ToString())
+        {
+            if(this.Sexe == altre.Sexe)
+            {
+                this.EsViu = false;
+                altre.EsViu = false;
+            }
+            if (this.Sexe != altre.Sexe)
+            {
+                //reproduccio() 
+            } 
+        }
+        
+        if(this.ToString() != altre.ToString())
+        {
+            if(this.potAtacar == )
+            
+        }
+        
+     
+
+
+
+
+
+
+        
+    }
+
+    public void CompteEnrere()
+    {
+        
+        if (Vides == -1)
+        {
+            return;
+        }
+        Vides -= 1;
+        
     }
 
 

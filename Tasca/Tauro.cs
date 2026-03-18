@@ -25,7 +25,7 @@ public class Tauro: Animal
     }
     
 
-    public void CompteEnrereMorTauro()
+    public void CompteEnrereMor()
     {
         Vides -= 1;
 
