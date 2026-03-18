@@ -6,41 +6,11 @@ public class Tauro: Animal
     public Tauro(ESexe sexe) : base(sexe)
     {
       Vides = 75;
+      girarAmb = new(){"Tortuga"};
+      potAtacar = new(){"Peix","Pop", "Tauro"};
     }
 
-   /* public override Animal? Interactuar(Animal altre, Peixera peixera)
-    {
-        
-        if(altre is Peix p )
-        {
-            p.Morir();
-            
-        }
-        else if(altre is Pop po )
-        {
-            po.Morir();
-            
-        }
-        else if(altre is Tortuga )
-        {
-            CanvidireccioTauro();
-        }
-        else if(altre is Tauro t)
-        {
-            if(Sexe == t.Sexe)
-            {
-                Morir();
-                t.Morir();
-            }
-            else
-            {
-                 return Reproduccio( );
-                
-            }
-        
-        }
-        return null;
-    }
+   /*
 
     public override Animal Reproduccio(Animal altre, (int x, int y) MidaPeixera)
     {

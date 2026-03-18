@@ -12,6 +12,12 @@ public abstract class Animal
 
     public bool ShaMogut {get; set;}
 
+    public int Vides {get; set;}
+
+    public List<string>girarAmb {get; set;}
+
+    public List<string>potAtacar {get; set;}
+
     public Animal(ESexe sexe)
     {
       
@@ -26,7 +32,10 @@ public abstract class Animal
         {
             Sexe = sexe;
         }
-    ShaMogut = false;
+        ShaMogut = false;
+        Vides = -1;
+        girarAmb = new();
+        potAtacar = new();
     }
 
     public  virtual ESexe EscullSexe()
@@ -77,7 +86,10 @@ public abstract class Animal
         EsViu = false;
     }*/
 
-    public abstract bool? Interactuar(Animal altre);
+    public void Interactuar(Animal altre);
+    {
+        Console.WriteLine("hola");
+    }
 
 
     /*public virtual (int x, int y) EscollirPosicioInicialAnimal ( Random r1, (int x, int y) MidaPeixera )

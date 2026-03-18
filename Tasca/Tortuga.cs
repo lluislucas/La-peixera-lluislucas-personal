@@ -4,33 +4,8 @@ public class Tortuga: Animal
     public Tortuga(ESexe sexe) : base(sexe)
     {
       
-      
+      potAtacar = new(){"Tortuga"};
     }
 
-    
-   /* public override Animal? Interactuar(Animal altre)
-    {
 
-        if(altre is Tortuga tortu)
-        {
-            if(Sexe == tortu.Sexe)
-            {
-                Morir();
-                tortu.Morir();
-            }
-            else
-            {
-                return Reproduccio();
-                
-            }
-        
-        }
-        return null;
-    }
-
-    public override Animal Reproduccio(Animal altre)
-    {
-
-            return new Tortuga();
-    }*/
 }

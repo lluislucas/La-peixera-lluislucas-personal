@@ -6,12 +6,10 @@ public  class Pop : Animal
 
     public (int dx, int dy) Direccio {get; private set;}
 
-    public bool EsViu {get; private set;}
-
     public Pop( ) : base(ESexe.Hermafrodita)
     {
       
-      EsViu = true;
+      potAtacar = new(){"Pop"};
       //Direccio = CanviarDireccioPop();
 
     }
@@ -25,30 +23,7 @@ public  class Pop : Animal
         return Posicions[r1.Next(2)];
 
     }
-    public override Animal? Interactuar(Animal altre,Peixera peixera)
-    {
-        if(altre is Pop)
-        {
-            Morir();
-            return null;
-        }
 
-        if(altre is Pop p)
-        {
-            if(Sexe == p.Sexe)
-            {
-                Morir();
-                p.Morir();
-                
-            }
-            else
-            {
-            
-                
-            }
-        }
-        return null;
-    }
 
     public   (int dx, int dy)  CanviarDireccioPop()
     {

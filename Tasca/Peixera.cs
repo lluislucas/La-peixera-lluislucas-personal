@@ -118,20 +118,29 @@ public class Peixera
     public void SeguentRonda()
     {
         ResetRonda();
-
+        MoureTotsPeixos();
         for(int i =0; i<Aquari.Count; i++ )
         {
             for(int j =0; j<Aquari[i].Count; j++ )
             {
                 for(int k =0; k<Aquari[i][j].Count; k++ )
                 {
-                    MoureAnimal((i,j,k));
+                    for(int l =k+1; l<Aquari[i][j].Count; l++ )
+                    {
+                        Intrectuar(Aquari[i][j][k],Aquari[i][j][l]);
+                 
+                    }
+                    
 
                 }
 
             }
             
         }
+
+
+
+        
     }
 
     public void MoureAnimal((int x, int y, int num_animal) GPSAnimal)
@@ -150,6 +159,23 @@ public class Peixera
             
         }
    
+    }
+
+    public void MoureTotsPeixos()
+    {
+        for(int i =0; i<Aquari.Count; i++ )
+        {
+            for(int j =0; j<Aquari[i].Count; j++ )
+            {
+                for(int k =0; k<Aquari[i][j].Count; k++ )
+                {
+                    MoureAnimal((i,j,k));
+
+                }
+
+            }
+            
+        }
     }
 
     public void ResetRonda()

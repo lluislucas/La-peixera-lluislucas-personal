@@ -67,6 +67,8 @@ internal class Program
         {
         peixera.Imprimir();
         peixera.SeguentRonda();
+        
+
         peixera.Imprimir();
         Console.WriteLine(" ");
         }
