@@ -24,7 +24,7 @@ public abstract class Animal
         {
             Sexe = sexe;
         }
-        ShaMogut = false;
+    ShaMogut = false;
         
     }
 
@@ -73,7 +73,7 @@ public abstract class Animal
         EsViu = false;
     }
 
-    public abstract Animal Reproduccio();
+    public abstract Animal? Reproduccio();
     
     
 }

@@ -37,8 +37,9 @@ public class Peixera
         }  
     }
 
-    public  (int x, int y) EscollirPosicioInicialAnimal ( )
-    {
+    public  (int x, int y) EscollirPosicioInicialAnimal ()
+    { 
+        
         int x = random.Next(0,MidaPeixera.X);
 
         int y = random.Next(0,MidaPeixera.Y);
@@ -49,10 +50,22 @@ public class Peixera
 
              y = random.Next(0,MidaPeixera.Y);
         }
+            return (x,y);
+     
+    }
+    public  (int x, int y) EscollirPosicioInicialPop()
+    {
+        int[] lateral ={0,MidaPeixera.X-1};
+        (int x, int y) posicio;
 
+        do{
 
-        return (x,y);
+        (int x,int y)[] Posicions = {(random.Next(MidaPeixera.X),lateral[random.Next(2)]),(lateral[random.Next(2)],random.Next(MidaPeixera.Y))}; 
         
+        posicio =  Posicions[random.Next(2)];} while(EsPosicioOcupada(posicio));
+
+        return posicio;
+
     }
 
     public  bool EsPosicioOcupada((int x, int y) valor)
@@ -83,8 +96,11 @@ public class Peixera
             else if (animal1 is not Pop)
             {
                 
-                    Animal fill= animal1.Reproduccio();
+                    Animal? fill= animal1.Reproduccio();
+                    if (fill != null)
+                    {
                     ColocarFill(fill, casellaPares);
+                    }
                     
             }
             return;
@@ -201,6 +217,10 @@ public class Peixera
     public void MoureAnimal((int x, int y, int num_animal) GPSAnimal)
     {
         Animal animal = Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal];
+        if (animal is Pop pop)
+        {
+            pop.ActualitzarDireccioPop ((GPSAnimal.x,GPSAnimal.y),MidaPeixera);
+        }
 
         if(animal.ShaMogut == false)
         {

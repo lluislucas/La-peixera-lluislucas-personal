@@ -4,63 +4,52 @@ public  class Pop : Animal
 
     //public (int x, int y) Posicio {get; private set;}
 
-    public (int dx, int dy) Direccio {get; private set;}
-
     public Pop( ) : base(ESexe.Hermafrodita)
     {
-      
-      //potAtacar = new(){"Pop"};
-      //Direccio = CanviarDireccioPop();
-
-    }
-    
-    public  override (int x, int y) EscollirPosicioInicialAnimal(Animal altre, Random r1, (int x, int y) MidaPeixera)
-    {
-        int[] lateral ={0,19};
-
-        (int x,int y)[] Posicions = {(r1.Next(20),lateral[r1.Next(1)]),(lateral[r1.Next(1)],r1.Next(20))}; 
-        
-        return Posicions[r1.Next(2)];
 
     }
 
 
-    public   (int dx, int dy)  CanviarDireccioPop()
+    public   (int dx, int dy)  CanviarDireccioPop((int x, int y) posicioActual, (int x, int y)midaPeixera)
     {
+        int maxX = midaPeixera.x-1;
+        int maxY = midaPeixera.y-1;
 
-        if (Posicio == (0,0))
+
+        if (posicioActual.x == 0 && posicioActual.y< maxY)
         {
             return (0,1);
         }
-        else if (Posicio == (19,0))
+        else if (posicioActual.x < maxX && posicioActual.y== maxY)
         {
             return (1,0);
         }
-        else if (Posicio == (19,19))
+        else if (posicioActual.x == maxX && posicioActual.y >0 )
         {
             return (0,-1);
         }
-       else
-            return (-1,0);    
+       else if (posicioActual.x > 0 && posicioActual.y == 0)
+        {
+          return (-1,0);    
+        }
+        else
+        {
+            return (0,0);
+        }
+              
     }
 
-
-    public virtual void MourePop()
+    public void ActualitzarDireccioPop((int x, int y) posicioActual, (int x, int y)midaPeixera)
     {
-        
-        Posicio = (Posicio.x + Direccio.dx, Posicio.y + Direccio.dy);
-        
+        Direccio = CanviarDireccioPop(posicioActual, midaPeixera);
     }
 
-    public void DinarGallec()
+    public override Animal? Reproduccio()
     {
-        EsViu = false;
+
+            return null;
     }
 
-    public override Animal? Reproduccio(Animal altre, Peixera peixera)
-    {
-        return null;
-    }
 
 
 }

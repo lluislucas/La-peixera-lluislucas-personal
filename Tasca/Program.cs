@@ -58,7 +58,7 @@ internal class Program
         for( int i = 0; i< num_pop; i++)
         {
  
-            (int x, int y) posicioInicial = peixera.EscollirPosicioInicialAnimal();
+            (int x, int y) posicioInicial = peixera.EscollirPosicioInicialPop();
             peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Pop ());
 
         }
