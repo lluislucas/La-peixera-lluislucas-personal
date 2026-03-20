@@ -54,7 +54,7 @@ internal class Program
             peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Tortuga (ESexe.Aleatori));
 
         }
-        Console.WriteLine("prova");
+        //Console.WriteLine("prova");
         for( int i = 0; i< num_pop; i++)
         {
  
@@ -66,7 +66,10 @@ internal class Program
         for( int i = 0; i< 100; i++)
         {
         peixera.Imprimir();
+        
+        
         peixera.SeguentRonda();
+        
         
 
         peixera.Imprimir();

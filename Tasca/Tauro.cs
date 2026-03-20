@@ -16,20 +16,7 @@ public class Tauro: Animal
             return new Tauro((ESexe.Aleatori));
     }
 
-   /*
 
-    public override Animal Reproduccio(Animal altre, (int x, int y) MidaPeixera)
-    {
-            (int x, int y) posicioFill = peixera.EscollirPosicioInicialAnimal(rPeix);
-
-            while (posicioFill == this.Posicio || posicioFill == altre.Posicio)
-            {
-                posicioFill = peixera.EscollirPosicioInicialAnimal(rPeix);
-            }
-
-            return new Tauro(posicioFill);
-    }
-    
 
     public void CompteEnrereMor()
     {
@@ -39,16 +26,16 @@ public class Tauro: Animal
         {
             Morir();
         }
-    }*/
+    }
     
-    public override void  CanvidireccioTauro()
+    public void  CanvidireccioTauro()
     {
 
         int dx = r.Next(-1, 2);
         int dy = r.Next(-1, 2);
         
 
-        while (dx == Direccio.dx && dy == Direccio.dy || dx == 0 && dy == 0)
+        while ((dx == Direccio.dx && dy == Direccio.dy) || (dx == 0 && dy == 0))
         {
             dx = r.Next(-1, 2);
             dy = r.Next(-1, 2);

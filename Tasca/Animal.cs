@@ -43,12 +43,11 @@ public abstract class Animal
         int numero = r.Next(0,2);
         if(numero == 0)
         {
-            this.Sexe = ESexe.Mascle;
+            
             return ESexe.Mascle;
             
         }
         
-            this.Sexe = ESexe.Femella;
             return ESexe.Femella;
 
     }
@@ -72,70 +71,19 @@ public abstract class Animal
    public virtual (int x, int y) ObtenirSeguentPosicio((int x, int y)posicio ,(int x, int y) midapeixera)
     {
         
-         (int x, int y) PosicioFinal = ((posicio.x + Direccio.dx) % midapeixera.x, (posicio.y + Direccio.dy) % midapeixera.y );
+         (int x, int y) PosicioFinal = ((posicio.x + Direccio.dx + midapeixera.x) % midapeixera.x, (posicio.y + Direccio.dy + midapeixera.y) % midapeixera.y );
 
           return PosicioFinal;
         
     }
 
 
-    /*public void Morir()
+    public void Morir()
     {
         EsViu = false;
-    }*/
-
-    public void Interactuar(Animal altre)
-    {
-        if(this.EsViu==false || altre.EsViu== false)
-        {
-            return;
-        }
-
-        if(this.ToString() == altre.ToString())
-        {
-            if(this.Sexe == altre.Sexe)
-            {
-                this.EsViu = false;
-                altre.EsViu = false;
-            }
-            else if (this.ToString()!= "Pop")
-            {
-                if(this.Sexe != altre.Sexe)
-                {
-                    this.Reproduccio();
-                    
-                } 
-            }
-            return;
-        }
-        
-        if(this.ToString() != altre.ToString())
-        {
-            if(this.ToString() == "Tauro")
-            {
-                if(altre.ToString()=="Peix")
-                {
-                    altre.EsViu = false;
-                }
-                if(altre.ToString()=="Tortuga")
-                {
-                    int direccio_inicial = this.Direccio.dx;
-                    while(this.Direccio.dx == direccio_inicial)
-                    {
-                    this.direccioAnimal();
-                    }
-                }
-                if(altre.ToString()=="Pop")
-                {
-                    altre.EsViu = false;
-                }
-                
-            }
-            return;
-            
-        }
-  
     }
+
+
 
     public void CompteEnrere()
     {
@@ -149,22 +97,5 @@ public abstract class Animal
     }
     public abstract Animal Reproduccio();
     
-
-
-
-    /*public virtual (int x, int y) EscollirPosicioInicialAnimal ( Random r1, (int x, int y) MidaPeixera )
-    {
-        int x = r1.Next(0,MidaPeixera.x);
-
-        int y = r1.Next(0,MidaPeixera.y);
-
-        return (x,y);
-        
-    }*/
-
-   
-  
-    
-
     
 }

@@ -43,7 +43,7 @@ public class Peixera
 
         int y = random.Next(0,MidaPeixera.Y);
        
-        while(comprovarPosicio((x,y)) == true)
+        while(EsPosicioOcupada((x,y)) == true)
         {
              x = random.Next(0,MidaPeixera.X);
 
@@ -55,9 +55,9 @@ public class Peixera
         
     }
 
-    public  bool comprovarPosicio((int x, int y) valor)
+    public  bool EsPosicioOcupada((int x, int y) valor)
     {
-        Console.WriteLine("prova");
+        
             if(Aquari[valor.x][valor.y].Count > 0)
             {
                 return true;
@@ -66,19 +66,88 @@ public class Peixera
             return false;
     }
 
-   /*public  Animal Reproduccio((int x , int y ) Aquari)
+    public void Interactuar(Animal animal1, Animal animal2, (int x, int y)casellaPares)
+    {
+        if(animal1.EsViu==false || animal2.EsViu== false)
+        {
+            return;
+        }
+
+        if(animal1.GetType()  == animal2.GetType() )
+        {
+            if(animal1.Sexe == animal2.Sexe)
+            {
+                animal1.Morir(); 
+                animal2.Morir();
+            }
+            else if (animal1 is not Pop)
+            {
+                
+                    Animal fill= animal1.Reproduccio();
+                    ColocarFill(fill, casellaPares);
+                    
+            }
+            return;
+        }
+        
+        else
+        {
+            if(animal1 is Tauro tauro)
+            {
+                if(animal2 is Peix)
+                {
+                    animal2.Morir();
+                }
+                else if(animal2 is Tortuga)
+                {
+                   
+                    tauro.CanvidireccioTauro();
+                    
+                }
+                else if(animal2 is Pop)
+                {
+                    animal2.Morir();
+                }
+                
+            }
+            else if(animal2 is Tauro tauro2)
+            {
+                if(animal1 is Peix)
+                {
+                    animal1.Morir();
+                }
+                else if(animal1 is Tortuga)
+                {
+                   
+                    tauro2.CanvidireccioTauro();
+                    
+                }
+                else if(animal1 is Pop)
+                {
+                    animal1.Morir();
+                }
+                
+            }
+
+            return;
+            
+        }
+  
+    }
+
+   public  void ColocarFill(Animal fill, (int x , int y ) casellaPares)
     {
             (int x, int y) posicioFill = EscollirPosicioInicialAnimal();
 
-            while ( posicioFill.x == Aquari.x && posicioFill.y == Aquari.y)
+            while ( posicioFill == casellaPares)
             {
                 posicioFill = EscollirPosicioInicialAnimal();
             }
 
-            return new Peix(ESexe.Aleatori);
-    }*/
+           Aquari[posicioFill.x][posicioFill.y].Add(fill);
+    }
 
-    public void AfegirAnimal(Animal animal)
+    /*public void AfegirAnimal(Animal animal)
     {
         Aquari[x][y].Add(animal);
     }
@@ -88,7 +157,7 @@ public class Peixera
     {
             animal.Morir();
             Aquari[x][y].Remove(animal);
-    }
+    }*/
 
     public  void Imprimir()
     {
@@ -128,9 +197,8 @@ public class Peixera
                     for(int l =k+1; l<Aquari[i][j].Count; l++ )
                     {
                         
-                        Aquari[i][j][l].Interactuar(Aquari[i][j][k]);
-                        //matar si ESVIU=false
-                        
+                        Interactuar(Aquari[i][j][l], Aquari[i][j][k], (i,j));
+   
                         
                     }
                     
@@ -140,23 +208,21 @@ public class Peixera
             }
             
         }
-        
 
-
-        
     }
 
     public void MoureAnimal((int x, int y, int num_animal) GPSAnimal)
     {
-        if(Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal].ShaMogut == false)
+        Animal animal = Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal];
+
+        if(animal.ShaMogut == false)
         {
             (int x, int y ) NovaPosicio =
-            Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal].
-            ObtenirSeguentPosicio((GPSAnimal.x,GPSAnimal.y),MidaPeixera);
+                animal.ObtenirSeguentPosicio((GPSAnimal.x,GPSAnimal.y),MidaPeixera);
 
-            Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal].ShaMogut = true;
+            animal.ShaMogut = true;
 
-            Aquari[NovaPosicio.x][NovaPosicio.y].Add(Aquari[GPSAnimal.x][GPSAnimal.y][GPSAnimal.num_animal]);
+            Aquari[NovaPosicio.x][NovaPosicio.y].Add(animal);
 
             Aquari[GPSAnimal.x][GPSAnimal.y].RemoveAt(GPSAnimal.num_animal);
             
@@ -170,7 +236,7 @@ public class Peixera
         {
             for(int j =0; j<Aquari[i].Count; j++ )
             {
-                for(int k =0; k<Aquari[i][j].Count; k++ )
+                for(int k =Aquari[i][j].Count-1; k>=0; k-- )
                 {
                     MoureAnimal((i,j,k));
 
