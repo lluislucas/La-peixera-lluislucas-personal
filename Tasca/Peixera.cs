@@ -163,30 +163,7 @@ public class Peixera
            Aquari[posicioFill.x][posicioFill.y].Add(fill);
     }
 
-    public  void Imprimir()
-    {
-        for (int x = 0; x < MidaPeixera.X; x++)
-        {
-            for (int y = 0; y < MidaPeixera.Y; y++)
-            {
-                if(Aquari[x][y].Count>0)
-                {
-                    if(Aquari[x][y].Count <10)
-                    {
-                        Console.Write(0);
-                    }
-                  
-                    Console.Write(Aquari[x][y].Count + " ");
-                    
-                }
-                else
-                {
-                    Console.Write("__ ");
-                }
-            }
-            Console.WriteLine();
-        }
-    }
+
 
     public void SeguentRonda()
     {
@@ -298,10 +275,38 @@ public class Peixera
             {
                 for(int k =Aquari[i][j].Count-1; k>=0; k-- )
                 {
-                    Aquari[i][j].RemoveAt(k);
-                 
+                    if (Aquari[i][j][k].EsViu == false)
+                    {
+                        Aquari[i][j].RemoveAt(k);
+                    }
+
                 }
             }
+        }
+    }
+
+    public  void Imprimir()
+    {
+        for (int x = 0; x < MidaPeixera.X; x++)
+        {
+            for (int y = 0; y < MidaPeixera.Y; y++)
+            {
+                if(Aquari[x][y].Count>0)
+                {
+                    if(Aquari[x][y].Count <10)
+                    {
+                        Console.Write(0);
+                    }
+                  
+                    Console.Write(Aquari[x][y].Count + " ");
+                    
+                }
+                else
+                {
+                    Console.Write("__ ");
+                }
+            }
+            Console.WriteLine();
         }
     }
 
