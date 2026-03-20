@@ -2,8 +2,6 @@ public abstract class Animal
 {
     protected static Random r = new();
 
-    //public (int x, int y) Posicio {get; protected set;}
-
     public (int dx, int dy) Direccio {get; protected set;}
 
     public bool EsViu {get; protected set;}
@@ -12,16 +10,10 @@ public abstract class Animal
 
     public bool ShaMogut {get; set;}
 
-    public int Vides {get; set;}
-
-    public List<string>girarAmb {get; set;}
-
-    public List<string>potAtacar {get; set;}
 
     public Animal(ESexe sexe)
     {
       
-      //Posicio = EscollirPosicioInicialAnimal();
       Direccio = direccioAnimal();
       EsViu = true;
       if(sexe== ESexe.Aleatori)
@@ -33,9 +25,7 @@ public abstract class Animal
             Sexe = sexe;
         }
         ShaMogut = false;
-        Vides = -1;
-        girarAmb = new();
-        potAtacar = new();
+        
     }
 
     public  virtual ESexe EscullSexe()
@@ -83,18 +73,6 @@ public abstract class Animal
         EsViu = false;
     }
 
-
-
-    public void CompteEnrere()
-    {
-        
-        if (Vides == -1)
-        {
-            return;
-        }
-        Vides -= 1;
-        
-    }
     public abstract Animal Reproduccio();
     
     

@@ -147,18 +147,6 @@ public class Peixera
            Aquari[posicioFill.x][posicioFill.y].Add(fill);
     }
 
-    /*public void AfegirAnimal(Animal animal)
-    {
-        Aquari[x][y].Add(animal);
-    }
-
-
-    public void EliminarAnimal(Animal animal)
-    {
-            animal.Morir();
-            Aquari[x][y].Remove(animal);
-    }*/
-
     public  void Imprimir()
     {
         for (int x = 0; x < MidaPeixera.X; x++)
@@ -187,7 +175,7 @@ public class Peixera
     public void SeguentRonda()
     {
         ResetRonda();
-        MoureTotsPeixos();
+        MoureTotsAnimals();
         for(int i =0; i<Aquari.Count; i++ )
         {
             for(int j =0; j<Aquari[i].Count; j++ )
@@ -198,10 +186,9 @@ public class Peixera
                     {
                         
                         Interactuar(Aquari[i][j][l], Aquari[i][j][k], (i,j));
-   
-                        
-                    }
                     
+                           
+                    }   
 
                 }
 
@@ -230,7 +217,7 @@ public class Peixera
    
     }
 
-    public void MoureTotsPeixos()
+    public void MoureTotsAnimals()
     {
         for(int i =0; i<Aquari.Count; i++ )
         {
@@ -264,6 +251,38 @@ public class Peixera
             
         }
         
+    }
+
+    public void RestarVida()
+    {
+        for(int i =0; i< Aquari.Count; i++ )
+        {
+            for(int j =0; j<Aquari[i].Count; j++ )
+            {
+                for(int k =0; k<Aquari[i][j].Count; k++ )
+                {
+                    if(Aquari[i][j][k] is Tauro tauro)
+                    {
+                        tauro.CompteEnrereMor();
+                    }
+                }
+            }
+        }
+    }
+
+    public void EliminarAnimals()
+    {
+        for(int i =0; i< Aquari.Count; i++ )
+        {
+            for(int j =0; j<Aquari[i].Count; j++ )
+            {
+                for(int k =Aquari[i][j].Count-1; k>=0; k-- )
+                {
+                    Aquari[i][j].RemoveAt(k);
+                 
+                }
+            }
+        }
     }
 
 

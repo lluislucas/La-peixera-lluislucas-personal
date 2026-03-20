@@ -67,10 +67,9 @@ internal class Program
         {
         peixera.Imprimir();
         
-        
         peixera.SeguentRonda();
-        
-        
+        peixera.RestarVida();
+        peixera.EliminarAnimals();
 
         peixera.Imprimir();
         Console.WriteLine(" ");

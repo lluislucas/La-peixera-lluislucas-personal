@@ -14,7 +14,7 @@ public  class Pop : Animal
 
     }
     
-   /* public  override (int x, int y) EscollirPosicioInicialAnimal(Animal altre, Random r1, (int x, int y) MidaPeixera)
+    public  override (int x, int y) EscollirPosicioInicialAnimal(Animal altre, Random r1, (int x, int y) MidaPeixera)
     {
         int[] lateral ={0,19};
 
@@ -60,7 +60,7 @@ public  class Pop : Animal
     public override Animal? Reproduccio(Animal altre, Peixera peixera)
     {
         return null;
-    }*/
+    }
 
 
 }

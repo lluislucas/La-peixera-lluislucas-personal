@@ -1,28 +1,25 @@
 public class Tauro: Animal
 {
-    private static Random rPeix = new();
+    
     public int Vides {get; set;}
 
-    public Tauro(ESexe sexe) : base(sexe)
+    public Tauro( ESexe sexe) : base(sexe)
     {
       Vides = 75;
-      girarAmb = new(){"Tortuga"};
-      potAtacar = new(){"Peix","Pop"};
+      
     }
 
     public override Animal Reproduccio()
     {
-
-            return new Tauro((ESexe.Aleatori));
+            return new Tauro(ESexe.Aleatori);
     }
-
 
 
     public void CompteEnrereMor()
     {
         Vides -= 1;
 
-        if(Vides == 0)
+        if(Vides <= 0)
         {
             Morir();
         }
