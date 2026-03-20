@@ -33,18 +33,18 @@ internal class Program
             peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(dori);
  
         }
-        for( int i = 0; i< num_tauroF; i++)
+        for( int i = 0; i< num_tauroM; i++)
         {
            
             (int x, int y) posicioInicial = peixera.EscollirPosicioInicialAnimal();
             peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Tauro (ESexe.Mascle));
  
         }
-        for( int i = 0; i< num_tauroM; i++)
+        for( int i = 0; i< num_tauroF; i++)
         {
 
             (int x, int y) posicioInicial = peixera.EscollirPosicioInicialAnimal();
-            peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Tauro (ESexe.Mascle));
+            peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Tauro (ESexe.Femella));
  
         }
         for( int i = 0; i< num_tortuga; i++)
