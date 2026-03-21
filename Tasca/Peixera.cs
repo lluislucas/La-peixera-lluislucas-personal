@@ -79,7 +79,7 @@ public class Peixera
             return false;
     }
 
-    public void Interactuar(Animal animal1, Animal animal2, (int x, int y)casellaPares)
+    public void Interactuar(Animal animal1, Animal animal2, (int x, int y)casellaPeixera)
     {
         if(animal1.EsViu==false || animal2.EsViu== false)
         {
@@ -88,7 +88,14 @@ public class Peixera
 
         if(animal1.GetType()  == animal2.GetType() )
         {
-            if(animal1.Sexe == animal2.Sexe)
+            if(animal1 is Pop pop1 && animal2 is Pop pop2)
+            {
+                pop1.ActualitzarDireccioPop(casellaPeixera,MidaPeixera);
+                pop2.ActualitzarDireccioPop(casellaPeixera,MidaPeixera);
+                return;
+            }
+
+            else if(animal1.Sexe == animal2.Sexe)
             {
                 animal1.Morir(); 
                 animal2.Morir();
@@ -99,7 +106,8 @@ public class Peixera
                     Animal? fill= animal1.Reproduccio();
                     if (fill != null)
                     {
-                    ColocarFill(fill, casellaPares);
+                    fill.escullDireccioFill(animal1.Direccio,animal2.Direccio);
+                    ColocarFill(fill, casellaPeixera);
                     }
                     
             }
@@ -144,8 +152,6 @@ public class Peixera
                 }
                 
             }
-
-            return;
             
         }
   
@@ -162,8 +168,6 @@ public class Peixera
 
            Aquari[posicioFill.x][posicioFill.y].Add(fill);
     }
-
-
 
     public void SeguentRonda()
     {
@@ -310,5 +314,43 @@ public class Peixera
         }
     }
 
+    public void EstocPeixera()
+    {
+         int num_peixos = 0;
+         int num_taurons =0;
+         int num_tortugues =0;
+         int num_pops = 0;
+
+        for(int i =0; i< MidaPeixera.Y; i++ )
+        {
+            for(int j =0; j<MidaPeixera.X; j++ )
+            {
+                for(int k =0; k<Aquari[i][j].Count; k++ )
+                {
+                    if(Aquari[i][j][k] is Peix )
+                    {
+                        num_peixos+= 1;
+                    }
+                    else if(Aquari[i][j][k] is Tauro )
+                    {
+                        num_taurons+= 1;
+                    }
+                     else if(Aquari[i][j][k] is Tortuga )
+                    {
+                        num_tortugues+= 1;
+                    }
+                     else 
+                    {
+                        num_pops+= 1;
+                    }
+                }
+            }
+        }
+        Console.WriteLine();
+        Console.WriteLine("Peixos: " + num_peixos);
+        Console.WriteLine("Taurons: " + num_taurons);
+        Console.WriteLine("Tortugues: " + num_tortugues);
+        Console.WriteLine("Pops: " + num_pops);
+    }
 
 }

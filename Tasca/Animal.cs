@@ -58,6 +58,17 @@ public abstract class Animal
         
     }
 
+    public  void escullDireccioFill((int dx , int dy ) direccio1, (int dx , int dy ) direccio2)
+    {
+            Direccio = direccioAnimal();
+
+            while ( Direccio == direccio1 || Direccio == direccio2 )
+            {
+                Direccio = direccioAnimal();
+            }
+
+    }
+
    public virtual (int x, int y) ObtenirSeguentPosicio((int x, int y)posicio ,(int x, int y) midapeixera)
     {
         

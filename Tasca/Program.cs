@@ -13,6 +13,7 @@ internal class Program
          int num_tauroF =10;
          int num_tortuga =6;
          int num_pop = 15;
+         int num_rondes = 100;
 
          
 
@@ -62,18 +63,23 @@ internal class Program
             peixera.Aquari[posicioInicial.x][posicioInicial.y].Add(new Pop ());
 
         }
-
-        for( int i = 0; i< 100; i++)
-        {
         peixera.Imprimir();
+
+        for( int i = 0; i< num_rondes; i++)
+        {
+        
         
         peixera.SeguentRonda();
         peixera.RestarVida();
         peixera.EliminarAnimals();
 
-        peixera.Imprimir();
+        //peixera.Imprimir();
+        
+
         Console.WriteLine(" ");
         }
+        peixera.Imprimir();
+        peixera.EstocPeixera();
 
 
 
